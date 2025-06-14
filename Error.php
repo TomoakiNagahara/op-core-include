@@ -95,3 +95,32 @@ set_exception_handler(function( \Throwable $e)
 	//	...
 	OP\Error::Set($message, $backtraces);
 });
+
+/**	Called back on shutdown.
+ *
+ * @see        https://www.php.net/manual/ja/function.register-shutdown-function.php
+ *
+ */
+register_shutdown_function(function()
+{
+	//	...
+	if( $error = error_get_last() ){
+		//	...
+		if( class_exists('OP\Error', true) ){
+			//	...
+			OP\Error::Set($error);
+		}else{
+			echo '`OP\Error` class does not exists.';
+		}
+	}
+
+	//	Check if exists OP_ERROR trait.
+	if( trait_exists('OP\OP_ERROR', false) ){
+		//	If the OP_ERROR trait exists, an error has occurred.
+		//	To reduce memory consumption, unnecessary object are not loaded.
+		OP\Error::Notice();
+	}
+
+	//	...
+	return true;
+});
