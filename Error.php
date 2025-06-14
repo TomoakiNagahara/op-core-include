@@ -10,3 +10,11 @@
  * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
+
+/**	PHP error settings.
+ *
+ */
+error_reporting(E_ALL);
+ini_set('short_open_tag','On');
+ini_set('display_errors','On');
+ini_set('log_errors'    ,'On');
