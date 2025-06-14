@@ -18,3 +18,25 @@ error_reporting(E_ALL);
 ini_set('short_open_tag','On');
 ini_set('display_errors','On');
 ini_set('log_errors'    ,'On');
+
+/**	Catch standard error.
+ *
+ * @see        https://www.php.net/manual/ja/function.set-error-handler.php
+ *
+ */
+set_error_handler( function($errno, $error, $file, $line /* , $context=null is removed PHP 8.0.0 */)
+{
+	//	...
+	if( include_once(_ROOT_GIT_.'/asset/core/function/GetErrorConstName.php') ){
+		//	...
+		$errno = OP\GetErrorConstName($errno);
+	}
+
+	//	...
+	if( class_exists('OP\Error', true) ){
+		OP\Error::Set( "{$errno}: {$error}", debug_backtrace() );
+	}else{
+		echo "`OP\Error` class does not exists.";
+	}
+
+}, E_ALL);
