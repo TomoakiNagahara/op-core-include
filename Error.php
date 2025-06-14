@@ -40,3 +40,58 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
 	}
 
 }, E_ALL);
+
+/**	Catch of uncaught error.
+ *
+ * @see        https://www.php.net/manual/ja/function.set-exception-handler.php
+ *
+ */
+set_exception_handler(function( \Throwable $e)
+{
+	//	...
+	if(!class_exists('OP\Error', true) ){
+		echo "`OP\Error` class does not exists.";
+		return;
+	}
+
+	//	...
+	$backtrace = [];
+	$backtrace['file']		 = $e->getFile();
+	$backtrace['line']		 = $e->getLine();
+	$backtrace['function']	 = null;
+
+	//	...
+	$backtraces = $e->getTrace();
+
+	//	...
+	switch( $backtraces[0]['function'] ?? null ){
+		case 'include':
+		case 'require':
+		case 'include_once':
+		case 'require_once':
+			if( empty($backtraces[0]['args']) ){
+				$backtraces[0]['args'][] = $backtrace['file'];
+			}
+			break;
+	}
+
+	//	...
+	array_unshift($backtraces, $backtrace);
+
+	//	...
+	if( $code = $e->getCode() ){
+		//	...
+		if( include_once(_ROOT_GIT_.'/asset/core/function/GetErrorConstName.php') ){
+			$code = OP\GetErrorConstName( $code );
+		}
+
+		//	...
+		$message = $code .': '. $e->getMessage();
+	}else{
+		//	...
+		$message = $e->getMessage();
+	}
+
+	//	...
+	OP\Error::Set($message, $backtraces);
+});
