@@ -39,7 +39,7 @@ define('_OP_DATE_TIME_', 'Y-m-d H:i:s');
  */
 if( $_SERVER['APP_ROOT'] ){
 	//	Set document root if empty.
-	if( $_SERVER['DOCUMENT_ROOT'] ?? null ){
+	if(!$_SERVER['DOCUMENT_ROOT'] ?? null ){
 		$_SERVER['DOCUMENT_ROOT'] = $_SERVER['APP_ROOT'];
 	}
 	//	Define constant.
