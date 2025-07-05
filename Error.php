@@ -27,17 +27,20 @@ ini_set('log_errors'    ,'On');
 set_error_handler( function($errno, $error, $file, $line /* , $context=null is removed PHP 8.0.0 */)
 {
 	//	...
-	if( include_once(_ROOT_GIT_.'/asset/core/function/GetErrorConstName.php') ){
+	if( require_once(_ROOT_GIT_.'/asset/core/function/GetErrorConstName.php') ){
 		//	...
 		$errno = OP\GetErrorConstName($errno);
 	}
 
+	/*
 	//	...
 	if( class_exists('OP\Error', true) ){
 		OP\Error::Set( "{$errno}: {$error}", debug_backtrace() );
 	}else{
 		echo "`OP\Error` class does not exists.";
 	}
+	*/
+	OP\Error::Set( "{$errno}: {$error}" );
 
 }, E_ALL);
 
