@@ -40,7 +40,7 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
 		echo "`OP\Error` class does not exists.";
 	}
 	*/
-	OP\Error::Set( "{$errno}: {$error}" );
+	OP\Error::Set("{$errno}: {$error}", debug_backtrace());
 
 }, E_ALL);
 
