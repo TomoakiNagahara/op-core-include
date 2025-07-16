@@ -104,14 +104,16 @@ register_shutdown_function(function()
 {
 	//	...
 	if( $error = error_get_last() ){
+		/*
 		//	...
-		if( class_exists('OP\Error', true) ){
-			//	...
-			OP\Error::Set($error);
-		}else{
+		if(!class_exists('OP\Error', true) ){
 			echo '`OP\Error` class does not exists.';
 			exit(__LINE__);
 		}
+		*/
+
+		//	...
+		OP\Error::Set($error);
 	}
 
 	//	Check if exists OP_ERROR trait.
