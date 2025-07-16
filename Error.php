@@ -32,16 +32,12 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
 		$errno = OP\GetErrorConstName($errno);
 	}
 
-	/*
 	//	...
 	if( class_exists('OP\Error', true) ){
 		OP\Error::Set( "{$errno}: {$error}", debug_backtrace() );
 	}else{
 		echo "`OP\Error` class does not exists.";
 	}
-	*/
-	OP\Error::Set("{$errno}: {$error}", debug_backtrace());
-
 }, E_ALL);
 
 /**	Catch of uncaught error.
@@ -51,13 +47,11 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
  */
 set_exception_handler(function( \Throwable $e)
 {
-	/*
 	//	...
 	if(!class_exists('OP\Error', true) ){
 		echo "`OP\Error` class does not exists.";
 		return;
 	}
-	*/
 
 	//	...
 	$backtrace = [];
@@ -110,16 +104,14 @@ register_shutdown_function(function()
 {
 	//	...
 	if( $error = error_get_last() ){
-		/*
 		//	...
 		if( class_exists('OP\Error', true) ){
 			//	...
 			OP\Error::Set($error);
 		}else{
 			echo '`OP\Error` class does not exists.';
+			exit(__LINE__);
 		}
-		*/
-		OP\Error::Set($error);
 	}
 
 	//	Check if exists OP_ERROR trait.
