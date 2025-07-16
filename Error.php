@@ -32,12 +32,17 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
 		$errno = OP\GetErrorConstName($errno);
 	}
 
+	/*
 	//	...
-	if( class_exists('OP\Error', true) ){
-		OP\Error::Set( "{$errno}: {$error}", debug_backtrace() );
-	}else{
+	if(!class_exists('OP\Error', true) ){
 		echo "`OP\Error` class does not exists.";
+		return;
 	}
+	*/
+
+	//	...
+	OP\Error::Set( "{$errno}: {$error}", debug_backtrace() );
+
 }, E_ALL);
 
 /**	Catch of uncaught error.
