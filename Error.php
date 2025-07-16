@@ -47,11 +47,13 @@ set_error_handler( function($errno, $error, $file, $line /* , $context=null is r
  */
 set_exception_handler(function( \Throwable $e)
 {
+	/*
 	//	...
 	if(!class_exists('OP\Error', true) ){
 		echo "`OP\Error` class does not exists.";
 		return;
 	}
+	*/
 
 	//	...
 	$backtrace = [];
