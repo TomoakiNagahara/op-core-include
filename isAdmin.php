@@ -26,4 +26,4 @@ if(!$remote_addr = $_SERVER['REMOTE_ADDR'] ?? null ){
 }
 
 //	...
-return $remote_addr === _ADMIN_IP_;
+return $remote_addr === OP::_ADMIN_IP_;
