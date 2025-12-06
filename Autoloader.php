@@ -4,10 +4,10 @@
  * @created   2014-11-29  Perhaps the file hadn't been separated yet.
  * @updated   2016-06-09  Separated into a single file
  * @rebirth   2025-06-11  op-core-include:/Autoloader.php
- * @version   2.0
- * @package   op-core-include
- * @author    Tomoaki Nagahara
- * @copyright Tomoaki Nagahara All right reserved.
+ * @license    Apache-2.0
+ * @package    op-core
+ * @subpackage include
+ * @copyright  (C) 2014 Tomoaki Nagahara
  */
 
 /**	Register autoloader.
@@ -18,9 +18,6 @@
  * @updated   2019-06-13  The autoloader now supports UNIT loading.
  * @updated   2025-06-11  The source code has been cleaned up a little.
  * @version   3.0
- * @package   op-core-include
- * @author    Tomoaki Nagahara
- * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
 spl_autoload_register( function($class_name)

@@ -3,11 +3,10 @@
  *
  * @created    2020-04-29  op-core-7:/include/isAdmin.php
  * @porting    2025-06-14  op-core-include:/isAdmin.php
- * @version    1.0
+ * @license    Apache-2.0
  * @package    op-core
  * @subpackage include
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @copyright  (C) 2020 Tomoaki Nagahara
  */
 
 /**	namespace

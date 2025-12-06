@@ -3,10 +3,10 @@
  *
  * @created    2020-10-17  op-core-7:/include/isLocalhost.php
  * @porting    2025-06-14  op-core-include:/isLocalhost.php
- * @version    1.0
- * @package    op-core-include
- * @author     Tomoaki Nagahara
- * @copyright  Tomoaki Nagahara All right reserved.
+ * @license    Apache-2.0
+ * @package    op-core
+ * @subpackage include
+ * @copyright  (C) 2020 Tomoaki Nagahara
  */
 
 /**	namespace

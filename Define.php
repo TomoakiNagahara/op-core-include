@@ -3,11 +3,11 @@
  *
  * This file defines global constants used across the ONEPIECE FRAMEWORK.
  *
- * @created   2016-11-25
- * @version   1.0
- * @package   op-core-include
- * @author    Tomoaki Nagahara
- * @copyright Tomoaki Nagahara All right reserved.
+ * @created    2016-11-25
+ * @license    Apache-2.0
+ * @package    op-core
+ * @subpackage include
+ * @copyright  (C) 2016 Tomoaki Nagahara
  */
 
 /**	namespace
