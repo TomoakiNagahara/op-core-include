@@ -52,6 +52,11 @@ if( $_SERVER['APP_ROOT'] ){
 	//	Add slash to tail.
 	$_SERVER['APP_ROOT'] = rtrim($_SERVER['APP_ROOT'],'/').'/';
 
+	//	Support to public_html
+	if( file_exists( $_SERVER['APP_ROOT'] . '.public_html' ) ){
+		$git_root  = $_SERVER['APP_ROOT'];
+	}else
+
 	//	Try to locate the .git directory to determine the git repository root.
 	if(!file_exists( $git_root = $_SERVER['APP_ROOT'] . '.git' ) ){
 		if(!file_exists( $git_root = dirname($_SERVER['APP_ROOT']) . '/.git' ) ){
