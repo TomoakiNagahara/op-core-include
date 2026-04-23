@@ -52,6 +52,7 @@ if( $_SERVER['APP_ROOT'] ){
 	//	Add slash to tail.
 	$_SERVER['APP_ROOT'] = rtrim($_SERVER['APP_ROOT'],'/').'/';
 
+	/*
 	//	Support to public_html
 	if( file_exists( $_SERVER['APP_ROOT'] . '.public_html' ) ){
 		$git_root  = $_SERVER['APP_ROOT'];
@@ -66,6 +67,13 @@ if( $_SERVER['APP_ROOT'] ){
 
 	//	Get the parent directory of the .git directory. (i.e., the git root)
 	$git_root = dirname($git_root).'/';
+	*/
+
+	//	Search git root.
+	$git_root = $_SERVER['APP_ROOT'];
+	while( is_link("{$git_root}app.php") ){
+		$git_root = dirname($git_root).'/';
+	}
 
 	//	If DOCUMENT_ROOT is not set, assign APP_ROOT as a fallback.
 	if(!$_SERVER['DOCUMENT_ROOT'] ?? null ){
