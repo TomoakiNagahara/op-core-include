@@ -86,6 +86,7 @@ if( $_SERVER['APP_ROOT'] ){
 	//	Define root path constants used throughout the ONEPIECE.
 	define('_ROOT_DOC_'  , $_SERVER['DOCUMENT_ROOT']);
 	define('_ROOT_APP_'  , $_SERVER['APP_ROOT']     );
+	define('_ROOT_OP_'   , $git_root                );
 	define('_ROOT_GIT_'  , $git_root                );
 	define('_ROOT_ASSET_', $git_root.'asset/'       );
 	define('_ROOT_CORE_' , $git_root.'asset/core/'  );
