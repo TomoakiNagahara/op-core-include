@@ -11,7 +11,7 @@
 /* @var $_request array */
 
 //	JSON
-if(($_SERVER['CONTENT_TYPE'] ?? null) === 'application/json' ){
+if( str_starts_with( strtolower(trim($_SERVER['CONTENT_TYPE'] ?? '')), 'application/json') ){
 	//	Including this will not change the amount of memory consumed.
 	$_content = file_get_contents("php://input");
 	$_request = json_decode($_content, true);
