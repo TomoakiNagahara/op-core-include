@@ -17,7 +17,7 @@ namespace OP;
 $_request = [];
 
 //	...
-if( $_SERVER['SHELL'] ?? null ){
+if( OP::isShell() ){
 	include(__DIR__.'/RequestShell.php');
 }else{
 	include(__DIR__.'/RequestWeb.php');
